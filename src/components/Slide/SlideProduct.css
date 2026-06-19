@@ -1,50 +1,85 @@
 .slider-2 {
   width: 100%;
-  height: 200px;
+  min-height: 400px;
+}
+
+.slider-2 .slick-slide {
+  height: 400px;
 }
 
 .slider-2 div {
+  outline: none;
+}
+
+.slider1,
+.slider2,
+.slider3,
+.slider4,
+.slider5,
+.slider6 {
   width: 100%;
-  height: 200px;
+  height: 400px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .slider1 {
-  background-position: center;
-  background-size: cover;
   background-image: url("../../static/img/img-slide/pexels-bogdan-glisik-1661471.jpg");
-  position: relative;
 }
 
 .slider2 {
-  background-position: top;
-  background-size: cover;
   background-image: url("../../static/img/img-slide/pexels-thiago-nakano-16999150.jpg");
-  position: relative;
 }
 
 .slider3 {
-  background-position: top;
-  background-size: cover;
   background-image: url("../../static/img/img-slide/pexels-victoria-rain-16969437.jpg");
-  position: relative;
 }
 
 .slider4 {
-  background-position: top;
-  background-size: cover;
   background-image: url("../../static/img/img-slide/pexels-marcelo-dias-2010877.jpg");
 }
 
 .slider5 {
-  background-position: center;
-  background-size: cover;
   background-image: url("../../static/img/img-slide/pexels-jhefferson-santos-3078404.jpg");
-  position: relative;
 }
 
 .slider6 {
-  background-position: top;
-  background-size: cover;
   background-image: url("../../static/img/img-slide/pexels-criativithy-1805411.jpg");
-  position: relative;
+}
+
+.slider-2 .slick-dots li button:before {
+  color: white;
+}
+
+.slider-2 .slick-dots li.slick-active button:before {
+  color: #fbbf24;
+}
+
+@media (max-width: 768px) {
+  .slider-2,
+  .slider-2 .slick-slide,
+  .slider1,
+  .slider2,
+  .slider3,
+  .slider4,
+  .slider5,
+  .slider6 {
+    min-height: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slider-2,
+  .slider-2 .slick-slide,
+  .slider1,
+  .slider2,
+  .slider3,
+  .slider4,
+  .slider5,
+  .slider6 {
+    min-height: 250px;
+    height: 250px;
+  }
 }

@@ -8,15 +8,12 @@ import { Link } from "react-router-dom";
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
-    <div
+    <button
       className={className}
-      style={{
-        ...style,
-        display: "block",
-        background: "black",
-        borderRadius: "10px",
-      }}
+      style={{ ...style }}
       onClick={onClick}
+      type="button"
+      aria-label="Próximo slide"
     />
   );
 }
@@ -24,16 +21,12 @@ function SampleNextArrow(props) {
 function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
   return (
-    <div
+    <button
       className={className}
-      style={{
-        ...style,
-        display: "block",
-        position: "absolute",
-        background: "black",
-        borderRadius: "10px",
-      }}
+      style={{ ...style }}
       onClick={onClick}
+      type="button"
+      aria-label="Slide anterior"
     />
   );
 }
@@ -42,39 +35,60 @@ const SlideHome = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 600,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    pauseOnHover: false,
     slidesToShow: 1,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };
+
   return (
-    <div className="slider">
+    <section className="slider-wrapper">
       <Slider {...settings}>
-        <div className="img121">
-          <div className="text-img">
-            <h5>T-shirt / Tops</h5>
-            <h1>Summer Value Pack</h1>
-            <h4>cool / colorful / comfy</h4>
-            <Link to={"/summer"}>Shop Now</Link>
+        <div className="hero-slide hero-slide--summer">
+          <div className="hero-slide__content">
+            <p className="hero-slide__eyebrow">T-shirt / Tops</p>
+            <h1 className="hero-slide__title">Summer Value Pack</h1>
+            <p className="hero-slide__subtitle">Cool, colorful & comfy</p>
+            <Link to="/summer" className="hero-slide__button">
+              Shop Now
+            </Link>
           </div>
         </div>
-        <div className="img121-1">
-          <div className="text-img">
-            <h5>Urban Shirts</h5>
-            <h1>Live in confort FLAT 60% OFF</h1>
-            <Link to={"/winter"}>Shop Now</Link>
+
+        <div className="hero-slide hero-slide--urban">
+          <div className="hero-slide__content">
+            <p className="hero-slide__eyebrow">Urban Shirts</p>
+            <h1 className="hero-slide__title">
+              Live in comfort — FLAT 60% OFF
+            </h1>
+            <p className="hero-slide__subtitle">
+              Style that makes every day effortless
+            </p>
+            <Link to="/winter" className="hero-slide__button">
+              Shop Now
+            </Link>
           </div>
         </div>
-        <div className="img121-2">
-          <div className="text-img">
-            <h1>Black Sweatshirt with...</h1>
-            <h4>Explore Now</h4>
-            <Link to={"/winter"}>Shop Now</Link>
+
+        <div className="hero-slide hero-slide--sweatshirt">
+          <div className="hero-slide__content">
+            <h1 className="hero-slide__title">
+              Black Sweatshirt with premium fit
+            </h1>
+            <p className="hero-slide__subtitle">
+              Designed for comfort, made to stand out
+            </p>
+            <Link to="/winter" className="hero-slide__button">
+              Explore Now
+            </Link>
           </div>
         </div>
       </Slider>
-    </div>
+    </section>
   );
 };
 

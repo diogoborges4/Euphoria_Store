@@ -7,37 +7,77 @@ import { Link } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
 
 const Woman = () => {
-  const [menStyle, setMenStyle] = useState([]);
-  const [collect] = useState("wwznldv");
+  const [womenStyle, setWomenStyle] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     const client = createClient(
-      "pJK182Tw7MoTdDvQD3dzdx9jx3Mxyzf9kuniyZ7hFhCUnqWbLL5jI4Xa"
+      "pJK182Tw7MoTdDvQD3dzdx9jx3Mxyzf9kuniyZ7hFhCUnqWbLL5jI4Xa",
     );
 
     client.collections
       .media({ id: "wwznldv", per_page: 12 })
-      .then((media) => setMenStyle(media));
+      .then((media) => {
+        setWomenStyle(media);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Erro ao carregar produtos:", error);
+        setLoading(false);
+      });
   }, []);
 
-  console.log(menStyle);
   return (
-    <div>
+    <div className="woman-container">
       <Navbar />
-      <h1 className="h1-woman">Woman Style</h1>
-      <div className="men-styles">
-        {!menStyle.media && <div className="loading"></div>}
-        {menStyle.media &&
-          menStyle.media.map((men) => (
-            <Link to={`/product/${men.id}`} props={"wwznldv"}>
-              <div key={men.id} className="menCards">
-                <img src={men.src.portrait} alt="img" />
-                <h3>{men.alt}</h3>
-              </div>
-            </Link>
-          ))}
-      </div>
+      <section className="woman-section">
+        <div className="woman-header">
+          <h1 className="woman-title">Woman Style</h1>
+          <p className="woman-subtitle">
+            Discover the latest women's fashion collection
+          </p>
+        </div>
+
+        <div className="woman-grid">
+          {loading && (
+            <div className="loading-wrapper">
+              <div className="spinner"></div>
+              <p className="loading-text">Loading products...</p>
+            </div>
+          )}
+
+          {!loading && womenStyle.media && womenStyle.media.length > 0
+            ? womenStyle.media.map((item) => (
+                <Link
+                  to={`/product/${item.id}`}
+                  key={item.id}
+                  className="product-link"
+                >
+                  <div className="product-card">
+                    <div className="product-image-wrapper">
+                      <img
+                        src={item.src.portrait}
+                        alt={item.alt}
+                        className="product-image"
+                        loading="lazy"
+                      />
+                      <div className="overlay"></div>
+                    </div>
+                    <div className="product-info">
+                      <h3 className="product-name">{item.alt}</h3>
+                      <p className="product-category">Women's Collection</p>
+                    </div>
+                  </div>
+                </Link>
+              ))
+            : !loading && (
+                <div className="empty-state">
+                  <p>No products available</p>
+                </div>
+              )}
+        </div>
+      </section>
       <Footer />
     </div>
   );

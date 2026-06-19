@@ -8,7 +8,7 @@ import SlideHome from "../../components/Slide/SlideHome";
 
 const Shop = () => {
   return (
-    <div className="jose">
+    <div className="jose shop-section">
       <Navbar />
       <div>
         <SlideHome />

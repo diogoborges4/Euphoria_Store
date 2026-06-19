@@ -9,7 +9,10 @@ import "./Logo.css";
 export const Logo = () => {
   return (
     <div className="logo">
-      <div className="group">
+      <div className="logo__mark">E</div>
+      <div className="logo__text">
+        <strong>Euphoria</strong>
+        <span>Store</span>
       </div>
     </div>
   );

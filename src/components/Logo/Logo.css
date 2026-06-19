@@ -1,14 +1,40 @@
-  
-  .group {
-    width: 200px;
-    height: 200px;
-    background-image: url("../../static/img/Design-sem-nome.png");
-    background-position: center;
-    background-size: cover;
-  }
-  
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-family: "Poppins", "Inter", sans-serif;
+}
 
-  
-  
-  
-  
+.logo__mark {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, #7c3aed 0%, #0ea5e9 100%);
+  color: #ffffff;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  box-shadow: 0 18px 40px rgba(124, 58, 237, 0.18);
+}
+
+.logo__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.logo__text strong {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.logo__text span {
+  font-size: 0.8rem;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+}

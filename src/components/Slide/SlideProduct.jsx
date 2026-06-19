@@ -7,12 +7,12 @@ export default class AutoPlay extends Component {
   render() {
     const settings = {
       dots: true,
-      slidesToShow: 3,
+      slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
-      speed: 4000,
-      autoplaySpeed: 2000,
-      cssEase: "linear",
+      speed: 500,
+      autoplaySpeed: 4000,
+      cssEase: "ease-in-out",
     };
     return (
       <div className="slider-2">
